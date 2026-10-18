@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Practice Quiz</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body class="app-page"><header class="appbar"><a class="app-brand" href="{{ url_for('home') }}">✦ AI Study Buddy</a><span>Created by Rukhsar Bano</span></header>
+<main class="page-wrap content-page"><span class="eyebrow">CHECK YOUR UNDERSTANDING</span><h1>Practice quiz</h1><p class="muted">Questions based on: {{ filename }}</p>
+<form method="post" class="quiz-form">{% for q in questions %}<fieldset class="question-card"><legend>{{ loop.index }}. {{ q.question }}</legend>{% for option in q.options %}<label class="option"><input type="radio" name="q{{ loop.index0 }}" value="{{ option }}" required> {{ option }}</label>{% endfor %}</fieldset>{% endfor %}<button class="btn btn-primary" type="submit">Submit answers</button></form>
+<a class="back-link" href="{{ url_for('dashboard') }}">← Back to dashboard</a></main></body></html>

@@ -1,0 +1,4 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Quiz Result</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body class="app-page"><header class="appbar"><a class="app-brand" href="{{ url_for('home') }}">✦ AI Study Buddy</a><span>Created by Rukhsar Bano</span></header>
+<main class="page-wrap content-page result-page"><span class="eyebrow">QUIZ COMPLETED</span><h1>Your result</h1><div class="score-circle">{{ score }}<span>/ {{ total }}</span></div><p>You completed the quiz for <strong>{{ filename }}</strong>.</p><a class="btn btn-primary" href="{{ url_for('dashboard') }}">Back to dashboard</a></main></body></html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | AI Study Buddy</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="app-page">
+<header class="appbar"><a class="app-brand" href="{{ url_for('home') }}">✦ AI Study Buddy</a><span>Created by Ruksar Banu</span></header>
+<main class="page-wrap dashboard-wrap">
+  <div class="page-title"><span class="eyebrow">YOUR LEARNING SPACE</span><h1>Welcome to your dashboard</h1><p>Choose what you want to work on today.</p></div>
+  {% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}<div class="messages">{% for category, message in messages %}<div class="message {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}{% endwith %}
+  <section class="tool-grid">
+    <article class="tool-card upload-card"><div class="tool-icon">↥</div><h2>Upload PDF notes</h2><p>Choose a text-based PDF to extract your study notes.</p><form action="{{ url_for('upload_pdf') }}" method="post" enctype="multipart/form-data"><input type="file" name="pdf_file" accept=".pdf,application/pdf" required><button class="btn btn-primary" type="submit">Upload notes</button></form></article>
+    <a class="tool-card tool-link" href="{{ url_for('summary') }}"><div class="tool-icon peach">✧</div><h2>Study summary</h2><p>Get a quick summary from your latest uploaded notes.</p><span class="text-link">View summary →</span></a>
+    <a class="tool-card tool-link" href="{{ url_for('quiz') }}"><div class="tool-icon mint">✓</div><h2>Practice quiz</h2><p>Generate practice questions and save your score.</p><span class="text-link">Start a quiz →</span></a>
+  </section>
+  <section class="lower-grid">
+    <div class="panel"><h2>Recent notes</h2>{% if notes %}<ul class="clean-list">{% for note in notes %}<li><span>📄 {{ note.filename }}</span><small>{{ note.uploaded_at }}</small></li>{% endfor %}</ul>{% else %}<p class="muted">Your uploaded PDFs will appear here.</p>{% endif %}</div>
+    <div class="panel"><h2>Recent quiz scores</h2>{% if scores %}<ul class="clean-list">{% for score in scores %}<li><span>{{ score.topic }}</span><strong>{{ score.score }}/{{ score.total }}</strong></li>{% endfor %}</ul>{% else %}<p class="muted">Your completed quizzes will appear here.</p>{% endif %}</div>
+  </section>
+  <a class="back-link" href="{{ url_for('home') }}">← Back to home</a>
+</main>
+</body>
+</html>

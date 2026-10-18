@@ -1,0 +1,6 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Study Summary</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body class="app-page"><header class="appbar"><a class="app-brand" href="{{ url_for('home') }}">✦ AI Study Buddy</a><span>Created by Ruksar Banu</span></header>
+<main class="page-wrap content-page"><span class="eyebrow">REVIEW YOUR NOTES</span><h1>Study summary</h1>
+{% if note %}<p class="muted">Source: {{ note.filename }}</p><article class="summary-box"><p>{{ summary_text }}</p></article><p class="notice">This is a simple extractive preview, not an AI-generated summary yet.</p>{% else %}<p>No notes uploaded yet. Upload a PDF from your dashboard first.</p>{% endif %}
+<a class="btn btn-primary" href="{{ url_for('dashboard') }}">Back to dashboard</a></main></body></html>

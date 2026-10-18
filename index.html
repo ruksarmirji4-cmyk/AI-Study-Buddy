@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Study Buddy</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="hero">
+  <div class="topline"><span class="brand-mark">✦</span> AI STUDY BUDDY <span class="creator">Created by Ruksar Banu</span></div>
+  <div class="hero-copy">
+    <span class="eyebrow">YOUR PERSONAL STUDY COMPANION</span>
+    <h1>Study smarter.<br><span>Feel more prepared.</span></h1>
+    <p>Turn your notes into clear summaries, practice quizzes, and answers—all in one place.</p>
+    <a class="btn btn-light" href="{{ url_for('dashboard') }}">Open my study space <span>→</span></a>
+  </div>
+  <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="book">📚</div><span class="spark spark-a">✦</span><span class="spark spark-b">✧</span><span class="floating-note">LEARN · PRACTISE · GROW</span></div>
+</header>
+<main class="page-wrap">
+  <div class="section-heading"><div><span class="eyebrow">MADE FOR YOUR STUDY ROUTINE</span><h2>Everything you need to learn</h2></div><p>Small steps. Better understanding.</p></div>
+  <section class="feature-grid">
+    <article class="feature-card"><div class="feature-icon lavender">↥</div><h3>Upload your notes</h3><p>Keep your PDF study material ready to use.</p></article>
+    <article class="feature-card"><div class="feature-icon peach">✧</div><h3>Quick summaries</h3><p>Review the key points from your notes.</p></article>
+    <article class="feature-card"><div class="feature-icon mint">✓</div><h3>Practice & improve</h3><p>Try quiz questions and track your scores.</p></article>
+  </section>
+  <footer>Built with care by <strong>Ruksar Banu</strong></footer>
+</main>
+</body>
+</html>
